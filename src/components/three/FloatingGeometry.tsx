@@ -2,7 +2,6 @@
 
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { MeshStandardMaterial } from 'three'
 import type { Mesh } from 'three'
 
 interface FloatingGeometryProps {
@@ -42,9 +41,9 @@ export default function FloatingGeometry({ mouseInfluence = 0.15 }: FloatingGeom
 
   return (
     <>
-      {/* Icosahedron — wireframe blue */}
+      {/* Icosahedron — wireframe blue (detail=4 for smooth hi-res wireframe) */}
       <mesh ref={icoRef} position={[0, 0, 0]}>
-        <icosahedronGeometry args={[1.4, 1]} />
+        <icosahedronGeometry args={[1.4, 4]} />
         <meshStandardMaterial
           color="#00d4ff"
           emissive="#00d4ff"
@@ -53,9 +52,9 @@ export default function FloatingGeometry({ mouseInfluence = 0.15 }: FloatingGeom
         />
       </mesh>
 
-      {/* Torus Knot — purple semi-transparent */}
+      {/* Torus Knot — higher segment counts for smooth silhouette at 4K */}
       <mesh ref={torusRef} position={[0, 0, 0]}>
-        <torusKnotGeometry args={[0.8, 0.22, 180, 24]} />
+        <torusKnotGeometry args={[0.8, 0.22, 300, 48]} />
         <meshStandardMaterial
           color="#7b2ff7"
           emissive="#3d0099"

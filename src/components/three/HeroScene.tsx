@@ -15,8 +15,13 @@ export default function HeroScene() {
   return (
     <Canvas
       camera={{ position: [0, 0, 5], fov: 75 }}
-      dpr={[1, isMobile ? 1 : 2]}
-      gl={{ antialias: !isMobile, alpha: true }}
+      dpr={[1, isMobile ? 1.5 : 4]}
+      gl={{
+        antialias: true,
+        alpha: true,
+        powerPreference: 'high-performance',
+        precision: 'highp',
+      }}
       style={{ position: 'absolute', inset: 0 }}
     >
       <ambientLight intensity={0.1} />
