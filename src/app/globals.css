@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@layer base {
+  :root {
+    --background: #050505;
+    --foreground: #f0f0f0;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Hide system cursor globally — replaced by CustomCursor */
+  * {
+    cursor: none !important;
+  }
+
+  /* Restore for touch / accessibility overrides */
+  @media (pointer: coarse) {
+    * {
+      cursor: auto !important;
+    }
+  }
+
+  html {
+    background-color: #050505;
+    color: #f0f0f0;
+    scroll-behavior: auto; /* Lenis handles smooth scroll */
+  }
+
+  body {
+    background-color: #050505;
+    color: #f0f0f0;
+    overflow-x: hidden;
+    font-family: var(--font-sans, system-ui, sans-serif);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050505;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #7b2ff7;
+    border-radius: 2px;
+  }
+
+  /* Selection highlight */
+  ::selection {
+    background: rgba(0, 212, 255, 0.3);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #00d4ff 0%, #7b2ff7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-hover:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  /* Avatar spinning border glow */
+  .avatar-border-glow {
+    position: relative;
+    border-radius: 1rem;
+    padding: 2px;
+    background: conic-gradient(from var(--angle), #00d4ff, #7b2ff7, #00d4ff);
+    animation: borderSpin 4s linear infinite;
+  }
+
+  @supports not (background: conic-gradient(red, blue)) {
+    .avatar-border-glow {
+      background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+    }
+  }
+}
