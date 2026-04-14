@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import { fadeUpVariant, slideInLeft, staggerContainer } from '@/lib/animations'
 import GradientText from '@/components/ui/GradientText'
 import SectionLabel from '@/components/ui/SectionLabel'
-import TechGrid from './TechGrid'
 
 export default function About() {
   return (
@@ -42,7 +41,7 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Right — Story & Tech */}
+        {/* Right — Story */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -62,18 +61,11 @@ export default function About() {
             and internal SaaS tools to consumer mobile apps.
           </motion.p>
 
-          <motion.p variants={fadeUpVariant} className="text-white/60 leading-relaxed mb-10">
+          <motion.p variants={fadeUpVariant} className="text-white/60 leading-relaxed">
             When I&apos;m not shipping client work, I&apos;m building side projects and
             exploring new tech — currently going deep on React Native and mobile-first
             product development.
           </motion.p>
-
-          <motion.div variants={fadeUpVariant}>
-            <p className="text-xs font-mono text-white/40 uppercase tracking-widest mb-4">
-              Tech I work with
-            </p>
-            <TechGrid />
-          </motion.div>
         </motion.div>
       </div>
     </section>
