@@ -1,11 +1,13 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null)
   const ringRef = useRef<HTMLDivElement>(null)
   const [mounted, setMounted] = useState(false)
+  const isTouch = useMediaQuery('(pointer: coarse)')
   const [isHovering, setIsHovering] = useState(false)
   const [isClicking, setIsClicking] = useState(false)
 
@@ -72,7 +74,7 @@ export default function CustomCursor() {
     }
   }, [mounted])
 
-  if (!mounted) return null
+  if (!mounted || isTouch) return null
 
   return (
     <>
