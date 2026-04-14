@@ -61,7 +61,11 @@ export default function MagneticButton({
       data-magnetic
     >
       {href ? (
-        <a href={href} className={baseClasses} target="_blank" rel="noopener noreferrer">
+        <a
+          href={href}
+          className={baseClasses}
+          {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        >
           <span className="relative z-10">{children}</span>
         </a>
       ) : (
