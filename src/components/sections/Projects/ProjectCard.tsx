@@ -79,26 +79,15 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             <div className="flex items-start justify-between mb-4">
               <span className="font-mono text-xs text-white/30">{String(index + 1).padStart(2, '0')}</span>
               <div className="flex gap-3">
-                {project.githubUrl && (
-                  <a
-                    href={project.githubUrl}
-                    className="text-white/40 hover:text-white transition-colors text-sm font-mono"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub"
-                  >
-                    GitHub
-                  </a>
-                )}
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}
                     className="text-accent-blue hover:text-accent-cyan transition-colors text-sm font-mono"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Live Demo"
+                    aria-label="Visit Site"
                   >
-                    Live ↗
+                    Visit Site ↗
                   </a>
                 )}
               </div>
