@@ -28,13 +28,13 @@ const CustomCursor = dynamic(
 )
 
 export const metadata: Metadata = {
-  title: 'Eric Montalvo — Frontend Developer & UI Engineer',
+  title: 'Eric Montalvo — Full Stack Developer',
   description:
-    'Frontend developer specializing in immersive UI experiences, 3D web, and creative interactions. React, Three.js, TypeScript.',
-  keywords: ['Frontend Developer', 'UI Engineer', 'React', 'Three.js', 'Portfolio'],
+    'Full stack developer building web and mobile products — ecommerce storefronts, SaaS dashboards, and cross-platform mobile apps. Next.js, React Native, TypeScript.',
+  keywords: ['Full Stack Developer', 'Next.js', 'React Native', 'TypeScript', 'Web Developer', 'Mobile Developer'],
   openGraph: {
-    title: 'Eric Montalvo — Frontend Developer',
-    description: 'Crafting immersive digital experiences where design meets technology.',
+    title: 'Eric Montalvo — Full Stack Developer',
+    description: 'Building production-ready web and mobile products — from ecommerce storefronts and SaaS tools to consumer mobile apps.',
     type: 'website',
   },
 }
