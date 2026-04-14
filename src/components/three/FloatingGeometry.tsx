@@ -66,29 +66,16 @@ export default function FloatingGeometry({ mouseInfluence = 0.15 }: FloatingGeom
         />
       </mesh>
 
-      {/* Cube orbiter — solid + wireframe layer so edges always show */}
+      {/* Cube orbiter — solid */}
       <group ref={orbitRef}>
-        {/* Solid inner mesh */}
         <mesh>
           <boxGeometry args={[0.7, 0.7, 0.7]} />
           <meshStandardMaterial
             color="#00fff0"
             emissive="#00fff0"
-            emissiveIntensity={0.5}
+            emissiveIntensity={0.9}
             roughness={0.05}
             metalness={0.9}
-            transparent
-            opacity={0.6}
-          />
-        </mesh>
-        {/* Wireframe overlay — keeps all 12 edges visible at every angle */}
-        <mesh>
-          <boxGeometry args={[0.72, 0.72, 0.72]} />
-          <meshStandardMaterial
-            color="#00fff0"
-            emissive="#00fff0"
-            emissiveIntensity={1.2}
-            wireframe
           />
         </mesh>
       </group>
