@@ -63,9 +63,9 @@ export default function About() {
           </motion.p>
 
           <motion.p variants={fadeUpVariant} className="text-white/60 leading-relaxed mb-10">
-            When I&apos;m not pushing pixels, I&apos;m exploring the cutting edge of WebGL,
-            animation libraries, and the browser&apos;s rendering pipeline. I believe
-            the best UI feels inevitable — like it could only have been built this way.
+            When I&apos;m not shipping client work, I&apos;m building side projects and
+            exploring new tech — currently going deep on React Native and mobile-first
+            product development.
           </motion.p>
 
           <motion.div variants={fadeUpVariant}>
