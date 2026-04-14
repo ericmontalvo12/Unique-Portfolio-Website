@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: 'Portfolio Contact <noreply@pelaizilua.resend.app>',
+      from: 'Portfolio Contact <onboarding@resend.dev>',
       to: process.env.CONTACT_EMAIL!,
       replyTo: email,
       subject: `New message from ${name}`,
