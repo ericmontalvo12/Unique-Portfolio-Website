@@ -212,30 +212,6 @@ export default function Contact() {
             </form>
           )}
         </motion.div>
-
-        {/* Social links */}
-        <motion.div
-          variants={fadeUpVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="flex justify-center gap-8 mt-12"
-        >
-          {[
-            { label: 'GitHub', href: '#' },
-            { label: 'LinkedIn', href: '#' },
-            { label: 'Twitter', href: '#' },
-          ].map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="font-mono text-sm text-white/40 hover:text-accent-blue transition-colors"
-              data-hover
-            >
-              {link.label}
-            </a>
-          ))}
-        </motion.div>
       </div>
     </section>
   )
