@@ -66,11 +66,11 @@ export default function FloatingGeometry({ mouseInfluence = 0.15 }: FloatingGeom
         />
       </mesh>
 
-      {/* Dodecahedron orbiter — solid + wireframe layer for clear 3D depth */}
+      {/* Cube orbiter — solid + wireframe layer so edges always show */}
       <group ref={orbitRef}>
         {/* Solid inner mesh */}
         <mesh>
-          <dodecahedronGeometry args={[0.45, 0]} />
+          <boxGeometry args={[0.7, 0.7, 0.7]} />
           <meshStandardMaterial
             color="#00fff0"
             emissive="#00fff0"
@@ -81,9 +81,9 @@ export default function FloatingGeometry({ mouseInfluence = 0.15 }: FloatingGeom
             opacity={0.6}
           />
         </mesh>
-        {/* Wireframe overlay — always shows edges regardless of angle */}
+        {/* Wireframe overlay — keeps all 12 edges visible at every angle */}
         <mesh>
-          <dodecahedronGeometry args={[0.47, 0]} />
+          <boxGeometry args={[0.72, 0.72, 0.72]} />
           <meshStandardMaterial
             color="#00fff0"
             emissive="#00fff0"
