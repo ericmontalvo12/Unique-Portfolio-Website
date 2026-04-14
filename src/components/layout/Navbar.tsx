@@ -6,20 +6,41 @@ import GradientText from '@/components/ui/GradientText'
 import { cn } from '@/lib/utils'
 
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Work', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', href: '#about', id: 'about' },
+  { label: 'Work', href: '#projects', id: 'projects' },
+  { label: 'Skills', href: '#skills', id: 'skills' },
+  { label: 'Contact', href: '#contact', id: 'contact' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const sectionIds = navLinks.map((l) => l.id)
+    const observers: IntersectionObserver[] = []
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id)
+      if (!el) return
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id)
+        },
+        { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+      )
+      observer.observe(el)
+      observers.push(observer)
+    })
+
+    return () => observers.forEach((o) => o.disconnect())
   }, [])
 
   return (
@@ -45,10 +66,20 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="font-mono text-sm text-white/50 hover:text-white transition-colors duration-200"
+              className={cn(
+                'font-mono text-sm transition-colors duration-200 relative',
+                activeSection === link.id ? 'text-white' : 'text-white/50 hover:text-white'
+              )}
               data-hover
             >
               {link.label}
+              {activeSection === link.id && (
+                <motion.span
+                  layoutId="nav-indicator"
+                  className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-accent-blue to-accent-purple"
+                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                />
+              )}
             </a>
           ))}
           <a

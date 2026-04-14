@@ -21,7 +21,7 @@ export default function About() {
           className="flex flex-col items-center lg:items-start"
         >
           {/* Avatar card with spinning glow border */}
-          <div className="relative mb-8">
+          <div className="relative mb-10">
             <div className="avatar-border-glow">
               <div className="bg-background rounded-[14px] p-1">
                 <div className="w-64 h-64 rounded-xl bg-gradient-accent flex items-center justify-center overflow-hidden">
@@ -38,6 +38,23 @@ export default function About() {
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               <span className="text-xs font-mono text-white/80">Available for hire</span>
             </div>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-3 gap-4 w-full max-w-xs">
+            {[
+              { value: '5+', label: 'Projects\nShipped' },
+              { value: '3+', label: 'Years\nBuilding' },
+              { value: '2', label: 'Platforms\nWeb & Mobile' },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="glass rounded-xl p-3 flex flex-col items-center text-center border border-white/5"
+              >
+                <span className="text-2xl font-bold text-gradient leading-none mb-1">{stat.value}</span>
+                <span className="text-[10px] font-mono text-white/35 whitespace-pre-line leading-tight">{stat.label}</span>
+              </div>
+            ))}
           </div>
         </motion.div>
 

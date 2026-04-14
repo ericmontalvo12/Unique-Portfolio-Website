@@ -143,9 +143,15 @@ export default function Contact() {
               Let&apos;s build something{' '}
               <GradientText>together</GradientText>
             </h2>
-            <p className="text-white/50 text-lg">
+            <p className="text-white/50 text-lg mb-3">
               Got a project in mind? I&apos;d love to hear about it.
             </p>
+            <a
+              href="mailto:ericmontalvo12@gmail.com"
+              className="font-mono text-sm text-accent-blue/70 hover:text-accent-blue transition-colors duration-200"
+            >
+              ericmontalvo12@gmail.com
+            </a>
           </motion.div>
         </motion.div>
 
