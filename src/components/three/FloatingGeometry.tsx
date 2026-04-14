@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
-import type { Mesh } from 'three'
+import { type Mesh, type Group } from 'three'
 
 interface FloatingGeometryProps {
   mouseInfluence?: number
@@ -11,7 +11,7 @@ interface FloatingGeometryProps {
 export default function FloatingGeometry({ mouseInfluence = 0.15 }: FloatingGeometryProps) {
   const icoRef = useRef<Mesh>(null)
   const torusRef = useRef<Mesh>(null)
-  const octaRef = useRef<Mesh>(null)
+  const orbitRef = useRef<Group>(null)
 
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime()
@@ -28,14 +28,14 @@ export default function FloatingGeometry({ mouseInfluence = 0.15 }: FloatingGeom
       torusRef.current.rotation.z = t * 0.05
     }
 
-    if (octaRef.current) {
-      // Orbit around icosahedron
+    if (orbitRef.current) {
       const angle = t * 0.5
-      octaRef.current.position.x = Math.cos(angle) * 2.5
-      octaRef.current.position.z = Math.sin(angle) * 2.5
-      octaRef.current.position.y = Math.sin(t * 0.7) * 0.5
-      octaRef.current.rotation.x = t * 0.8
-      octaRef.current.rotation.y = t * 0.6
+      orbitRef.current.position.x = Math.cos(angle) * 2.5
+      orbitRef.current.position.z = Math.sin(angle) * 2.5
+      orbitRef.current.position.y = Math.sin(t * 0.7) * 0.5
+      orbitRef.current.rotation.x = t * 0.8
+      orbitRef.current.rotation.y = t * 0.6
+      orbitRef.current.rotation.z = t * 0.4
     }
   })
 
@@ -66,17 +66,32 @@ export default function FloatingGeometry({ mouseInfluence = 0.15 }: FloatingGeom
         />
       </mesh>
 
-      {/* Octahedron — cyan fast-spinning orbiter */}
-      <mesh ref={octaRef}>
-        <octahedronGeometry args={[0.5, 0]} />
-        <meshStandardMaterial
-          color="#00fff0"
-          emissive="#00fff0"
-          emissiveIntensity={0.9}
-          roughness={0.05}
-          metalness={0.9}
-        />
-      </mesh>
+      {/* Dodecahedron orbiter — solid + wireframe layer for clear 3D depth */}
+      <group ref={orbitRef}>
+        {/* Solid inner mesh */}
+        <mesh>
+          <dodecahedronGeometry args={[0.45, 0]} />
+          <meshStandardMaterial
+            color="#00fff0"
+            emissive="#00fff0"
+            emissiveIntensity={0.5}
+            roughness={0.05}
+            metalness={0.9}
+            transparent
+            opacity={0.6}
+          />
+        </mesh>
+        {/* Wireframe overlay — always shows edges regardless of angle */}
+        <mesh>
+          <dodecahedronGeometry args={[0.47, 0]} />
+          <meshStandardMaterial
+            color="#00fff0"
+            emissive="#00fff0"
+            emissiveIntensity={1.2}
+            wireframe
+          />
+        </mesh>
+      </group>
     </>
   )
 }
