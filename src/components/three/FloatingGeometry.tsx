@@ -69,13 +69,13 @@ export default function FloatingGeometry({ mouseInfluence = 0.15 }: FloatingGeom
       {/* Octahedron orbiter — solid */}
       <group ref={orbitRef}>
         <mesh>
-          <octahedronGeometry args={[0.5, 0]} />
+          <octahedronGeometry args={[0.55, 0]} />
           <meshStandardMaterial
             color="#00fff0"
             emissive="#00fff0"
-            emissiveIntensity={0.4}
-            roughness={0.1}
-            metalness={0.9}
+            emissiveIntensity={0.12}
+            roughness={0.15}
+            metalness={0.85}
             flatShading
           />
         </mesh>

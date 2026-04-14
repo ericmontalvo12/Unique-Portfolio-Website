@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Project } from '@/types'
 import { cn } from '@/lib/utils'
@@ -73,6 +74,21 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
           {/* Inner glass overlay */}
           <div className="absolute inset-0 bg-background/60 rounded-2xl" />
+
+          {/* Screenshot preview */}
+          {project.image && (
+            <div className="relative z-10 mx-4 mt-4 rounded-xl overflow-hidden border border-white/10 h-[160px] bg-background/40">
+              <Image
+                src={project.image}
+                alt={`${project.title} screenshot`}
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              {/* subtle bottom fade into card */}
+              <div className="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-background/80 to-transparent" />
+            </div>
+          )}
 
           {/* Content */}
           <div className="relative z-10 p-6 flex flex-col h-full min-h-[260px]">

@@ -5,6 +5,7 @@ export interface Project {
   liveUrl?: string
   featured?: boolean
   gradient: string
+  image?: string
 }
 
 export interface Skill {

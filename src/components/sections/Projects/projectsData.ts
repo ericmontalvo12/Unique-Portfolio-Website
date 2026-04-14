@@ -9,6 +9,7 @@ export const projects: Project[] = [
     liveUrl: 'https://www.rockmountainperformance.com/',
     featured: true,
     gradient: 'from-accent-blue/20 to-accent-purple/20',
+    // image: '/screenshots/rock-mountain.png',
   },
   {
     title: 'OpsDesk',
@@ -18,6 +19,7 @@ export const projects: Project[] = [
     liveUrl: 'https://inventory-management-orcin-ten.vercel.app/dashboard',
     featured: true,
     gradient: 'from-accent-purple/20 to-pink-500/20',
+    // image: '/screenshots/opsdesk.png',
   },
   {
     title: 'HR General Services',
@@ -26,6 +28,7 @@ export const projects: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
     liveUrl: 'https://hrgeneralservices.vercel.app/',
     gradient: 'from-green-400/20 to-accent-blue/20',
+    // image: '/screenshots/hr-general.png',
   },
   {
     title: 'Park Passport',
