@@ -66,27 +66,17 @@ export default function FloatingGeometry({ mouseInfluence = 0.15 }: FloatingGeom
         />
       </mesh>
 
-      {/* Octahedron orbiter — solid + wireframe so edges always show */}
+      {/* Octahedron orbiter — solid */}
       <group ref={orbitRef}>
         <mesh>
           <octahedronGeometry args={[0.5, 0]} />
           <meshStandardMaterial
             color="#00fff0"
             emissive="#00fff0"
-            emissiveIntensity={0.5}
-            roughness={0.05}
+            emissiveIntensity={0.4}
+            roughness={0.1}
             metalness={0.9}
-            transparent
-            opacity={0.7}
-          />
-        </mesh>
-        <mesh>
-          <octahedronGeometry args={[0.52, 0]} />
-          <meshStandardMaterial
-            color="#00fff0"
-            emissive="#00fff0"
-            emissiveIntensity={1.2}
-            wireframe
+            flatShading
           />
         </mesh>
       </group>
