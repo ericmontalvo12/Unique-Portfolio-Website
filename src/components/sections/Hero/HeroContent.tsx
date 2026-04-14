@@ -85,15 +85,15 @@ export default function HeroContent() {
         <span className="font-mono text-white/60 text-lg mr-2">&gt;</span>
         <TypeAnimation
           sequence={[
-            'Frontend Developer',
+            'Full Stack Developer',
             2000,
-            'UI Engineer',
+            'Web & Mobile Engineer',
             2000,
-            'Creative Technologist',
+            'Next.js Developer',
             2000,
-            'React Specialist',
+            'React Native Developer',
             2000,
-            'Three.js Explorer',
+            'SaaS Builder',
             2000,
           ]}
           wrapper="span"
