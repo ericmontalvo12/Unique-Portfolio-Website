@@ -94,7 +94,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           <div className="relative z-10 p-6 flex flex-col h-full min-h-[260px]">
             <div className="flex items-start justify-between mb-4">
               <span className="font-mono text-xs text-white/30">{String(index + 1).padStart(2, '0')}</span>
-              <div className="flex gap-3">
+              <div className="flex gap-3 items-center">
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}
@@ -105,6 +105,33 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   >
                     Visit Site ↗
                   </a>
+                )}
+                {project.appStoreUrl && (
+                  <a
+                    href={project.appStoreUrl}
+                    className="text-accent-blue hover:text-accent-cyan transition-colors text-sm font-mono"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="App Store"
+                  >
+                    App Store ↗
+                  </a>
+                )}
+                {project.playStoreUrl && (
+                  <a
+                    href={project.playStoreUrl}
+                    className="text-accent-cyan hover:text-white transition-colors text-sm font-mono"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Google Play"
+                  >
+                    Google Play ↗
+                  </a>
+                )}
+                {project.comingSoon && !project.appStoreUrl && !project.playStoreUrl && (
+                  <span className="text-xs font-mono text-white/30 border border-white/10 rounded-full px-2.5 py-0.5">
+                    Coming to App Store
+                  </span>
                 )}
               </div>
             </div>

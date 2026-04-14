@@ -3,7 +3,9 @@ export interface Project {
   description: string
   tags: string[]
   liveUrl?: string
-  featured?: boolean
+  appStoreUrl?: string
+  playStoreUrl?: string
+  comingSoon?: boolean
   gradient: string
   image?: string
 }
