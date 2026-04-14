@@ -58,9 +58,8 @@ export default function About() {
           </motion.div>
 
           <motion.p variants={fadeUpVariant} className="text-white/60 leading-relaxed mb-4">
-            I&apos;m a Frontend/UI developer who lives at the intersection of design and
-            engineering. I specialize in turning complex ideas into fluid, beautiful
-            interfaces — from pixel-perfect layouts to immersive 3D experiences.
+            I craft production-ready web and mobile products — from ecommerce storefronts
+            and internal SaaS tools to consumer mobile apps.
           </motion.p>
 
           <motion.p variants={fadeUpVariant} className="text-white/60 leading-relaxed mb-10">
