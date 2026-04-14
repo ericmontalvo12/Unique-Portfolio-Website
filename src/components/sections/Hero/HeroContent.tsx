@@ -105,8 +105,8 @@ export default function HeroContent() {
 
       {/* Description */}
       <p className="hero-desc text-white/55 text-lg max-w-xl leading-relaxed mb-10">
-        I craft immersive digital experiences where beautiful design meets
-        cutting-edge technology. Specializing in interactive UIs and 3D web experiences.
+        I build web and mobile products people actually use — from ecommerce
+        storefronts and SaaS dashboards to cross-platform mobile apps.
       </p>
 
       {/* CTAs */}
