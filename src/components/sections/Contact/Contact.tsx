@@ -100,14 +100,27 @@ export default function Contact() {
     setTimeout(() => setRipples((r) => r.filter((rp) => rp.id !== id)), 700)
   }, [])
 
+  const [error, setError] = useState<string | null>(null)
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!form.name || !form.email || !form.message) return
     setSending(true)
-    // Simulate send — replace with real fetch('/api/contact', ...) call
-    await new Promise((r) => setTimeout(r, 1500))
-    setSending(false)
-    setSent(true)
+    setError(null)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.')
+      setSent(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong.')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -176,6 +189,10 @@ export default function Contact() {
                 value={form.message}
                 onChange={handleChange}
               />
+
+              {error && (
+                <p className="text-red-400 text-sm font-mono mb-4">{error}</p>
+              )}
 
               <div className="flex justify-end mt-4">
                 <button
