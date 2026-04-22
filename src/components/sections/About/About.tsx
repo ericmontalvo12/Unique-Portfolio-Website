@@ -1,85 +1,41 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { fadeUpVariant, slideInLeft, staggerContainer } from '@/lib/animations'
+import { fadeUpVariant, staggerContainer } from '@/lib/animations'
 import GradientText from '@/components/ui/GradientText'
 import SectionLabel from '@/components/ui/SectionLabel'
 
 export default function About() {
   return (
-    <section id="about" className="relative py-32 px-6 lg:px-12 max-w-6xl mx-auto">
+    <section id="about" className="relative py-32 px-6 lg:px-12 max-w-4xl mx-auto">
       {/* Background glow */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-accent-purple/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-        {/* Left — Avatar & identity */}
-        <motion.div
-          variants={slideInLeft}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          className="flex flex-col items-center lg:items-start"
-        >
-          {/* Avatar card with spinning glow border */}
-          <div className="relative mb-10">
-            <div className="avatar-border-glow">
-              <div className="bg-background rounded-[14px] p-1">
-                <div className="w-64 h-64 rounded-xl bg-gradient-accent flex items-center justify-center overflow-hidden">
-                  {/* Placeholder avatar with initials */}
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/20 to-accent-purple/20" />
-                    <span className="text-7xl font-bold text-gradient select-none z-10">EM</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 w-full max-w-xs">
-            {[
-              { value: '5+', label: 'Projects\nShipped' },
-              { value: '3+', label: 'Years\nBuilding' },
-              { value: '2', label: 'Platforms\nWeb & Mobile' },
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                className="glass rounded-xl p-3 flex flex-col items-center text-center border border-white/5"
-              >
-                <span className="text-2xl font-bold text-gradient leading-none mb-1">{stat.value}</span>
-                <span className="text-[10px] font-mono text-white/35 whitespace-pre-line leading-tight">{stat.label}</span>
-              </div>
-            ))}
-          </div>
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-100px' }}
+      >
+        <motion.div variants={fadeUpVariant}>
+          <SectionLabel index="01" label="About Me" />
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Building the web&apos;s{' '}
+            <GradientText>next layer</GradientText>
+          </h2>
         </motion.div>
 
-        {/* Right — Story */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-        >
-          <motion.div variants={fadeUpVariant}>
-            <SectionLabel index="01" label="About Me" />
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Building the web&apos;s{' '}
-              <GradientText>next layer</GradientText>
-            </h2>
-          </motion.div>
+        <motion.p variants={fadeUpVariant} className="text-white/60 leading-relaxed mb-4 text-lg max-w-2xl">
+          I craft production-ready web and mobile products — from ecommerce storefronts
+          and internal SaaS tools to consumer mobile apps.
+        </motion.p>
 
-          <motion.p variants={fadeUpVariant} className="text-white/60 leading-relaxed mb-4">
-            I craft production-ready web and mobile products — from ecommerce storefronts
-            and internal SaaS tools to consumer mobile apps.
-          </motion.p>
-
-          <motion.p variants={fadeUpVariant} className="text-white/60 leading-relaxed">
-            When I&apos;m not shipping client work, I&apos;m building side projects and
-            exploring new tech — currently going deep on React Native and mobile-first
-            product development.
-          </motion.p>
-        </motion.div>
-      </div>
+        <motion.p variants={fadeUpVariant} className="text-white/60 leading-relaxed text-lg max-w-2xl">
+          When I&apos;m not shipping client work, I&apos;m building side projects and
+          exploring new tech — currently going deep on React Native and mobile-first
+          product development.
+        </motion.p>
+      </motion.div>
     </section>
   )
 }
