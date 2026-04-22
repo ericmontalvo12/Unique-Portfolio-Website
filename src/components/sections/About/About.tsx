@@ -33,11 +33,6 @@ export default function About() {
                 </div>
               </div>
             </div>
-            {/* Floating status badge */}
-            <div className="absolute -bottom-4 -right-4 glass rounded-full px-4 py-2 flex items-center gap-2 animate-pulse-glow">
-              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-xs font-mono text-white/80">Available for hire</span>
-            </div>
           </div>
 
           {/* Stats */}

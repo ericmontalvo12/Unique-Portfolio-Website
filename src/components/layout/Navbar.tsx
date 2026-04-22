@@ -82,13 +82,6 @@ export default function Navbar() {
               )}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="px-5 py-2 rounded-full border border-accent-blue/40 text-accent-blue text-sm font-mono hover:bg-accent-blue/10 transition-colors"
-            data-hover
-          >
-            Hire me
-          </a>
         </div>
 
         {/* Mobile menu button */}
