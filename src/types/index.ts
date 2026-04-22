@@ -7,7 +7,6 @@ export interface Project {
   playStoreUrl?: string
   comingSoon?: boolean
   gradient: string
-  image?: string
 }
 
 export interface Skill {

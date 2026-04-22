@@ -8,7 +8,6 @@ export const projects: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe', 'Framer Motion'],
     liveUrl: 'https://www.rockmountainperformance.com/',
     gradient: 'from-accent-blue/20 to-accent-purple/20',
-    image: '/screenshots/IMG_0256.jpeg',
   },
   {
     title: 'OpsDesk',
